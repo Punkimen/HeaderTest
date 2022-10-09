@@ -1,0 +1,148 @@
+.header-menu {
+  position: relative;
+  background: #252525;
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+
+  &__search {
+
+    z-index: 5;
+  }
+
+  &__search-btn {
+    cursor: pointer;
+    border-radius: 10px 0 0 10px;
+    z-index: 2;
+    height: 100%;
+    width: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: $colorOrange;
+    border: none;
+  }
+
+  &__search-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0;
+    padding: 5px 10px;
+    outline: none;
+    border: transparent;
+    // width: 100%;
+    background: #fff;
+    color: #252525;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+    transition: all 0.5s;
+    opacity: 0;
+
+    &.show {
+      opacity: 1;
+      left: 39px;
+      width: 350px;
+
+      @media(max-width:$md5) {
+        width: calc(100% - 39px);
+      }
+    }
+  }
+
+  &__category {
+    overflow: auto;
+  }
+
+  &__category-list {
+
+    display: flex;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  &__category-elem {
+    padding: 9px 19px 9px 18px;
+    transition: all 0.2s;
+    cursor: pointer;
+    position: relative;
+    white-space: nowrap;
+
+    @media(max-width:$md4) {
+      padding: 9px 12px 9px 11px;
+    }
+
+    @media(max-width:$md5) {
+      padding: 9px 6px 9px 5px;
+    }
+
+    &:hover {
+      background: $colorOrange;
+      color: #252525;
+    }
+  }
+
+  &__sale {
+    border-radius: 0 10px 10px 0;
+    font-size: 14px;
+    padding: 10px 15px 8px 14px;
+    text-transform: uppercase;
+    background: $colorOrange;
+    color: #000000;
+    font-weight: 600;
+
+    &.mob {
+      text-align: center;
+      border-radius: 0;
+    }
+  }
+
+  &__sale-link {}
+}
+
+.fixed-phone {
+  width: 50px;
+  height: 50px;
+  background: $colorOrange;
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  border-radius: 50%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 8;
+  animation: call ease 1s infinite;
+
+  @media(max-width:$md4) {
+    display: flex;
+  }
+
+  img {
+    display: block;
+    width: 20px;
+    height: auto;
+  }
+}
+
+
+@keyframes call {
+  0% {
+    transform: rotate(0deg);
+    box-shadow: 0px 0px 0px 0px rgba(255, 204, 0, 0.5);
+  }
+
+  50% {
+    transform: rotate(45deg);
+    box-shadow: 0px 0px 25px 20px rgba(255, 204, 0, 0.5);
+  }
+
+  100% {
+    transform: rotate(0deg);
+    box-shadow: 0px 0px 0px 0px rgba(255, 204, 0, 0.5);
+  }
+}
